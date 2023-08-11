@@ -13,7 +13,7 @@ export class CoursesController {
   }
 
   @Post()
-  create(@Body() body) {
+  create(@Body('name') body) {
     return body;
   }
 }
