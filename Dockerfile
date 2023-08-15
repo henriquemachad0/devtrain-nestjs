@@ -1,6 +1,10 @@
 FROM node:14.15.4-alpine3.12
 
-RUN apk add --no-cash bash
+COPY .docker/entrypoint.sh ./
+
+RUN ["chmod",  "+x",  "./entrypoint.sh"]
+
+ENTRYPOINT './entrypoint.sh'
 
 RUN npm install -g @nestjs/cli
 
