@@ -6,7 +6,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    CoursesModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'db',
@@ -14,9 +13,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'postgres',
       password: 'docker',
       database: 'cursonestjs',
-      autoLoadEntities: true,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      autoLoadEntities: false,
       synchronize: false,
     }),
+    CoursesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

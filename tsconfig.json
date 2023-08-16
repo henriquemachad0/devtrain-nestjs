@@ -19,7 +19,8 @@
     "noFallthroughCasesInSwitch": false
   },
   "include": [
-    "src"
+    "src",
+    "ormconfig.js"
   ],
   "exclude": [
     "node_modules",
