@@ -52,5 +52,15 @@ describe('Courses: /courses', () => {
       .post('/courses')
       .send(course as CreateCourseDto)
       .expect(HttpStatus.CREATED)
+      .then(({body}) => {
+        const expectedCourse = jasmine.objectContaining({
+          ...course,
+          tags: jasmine.arrayContaining(
+            course.tags.map(name => jasmine.objectContaining({name})
+            )
+          )
+        })
+        expect(body).toEqual(expectedCourse)
+      })
   });
 });
