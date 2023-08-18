@@ -194,7 +194,7 @@ describe('CoursesService', () => {
 
     const course = await service.remove(id);
 
-    expect(mockCourseRepository.findOne).toHaveBeenCalled();
+    expect(mockCourseRepository.remove).toHaveBeenCalled();
     expect(expectOutputCourse).toStrictEqual(course);
   });
 
