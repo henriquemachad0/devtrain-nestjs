@@ -1,4 +1,5 @@
 import { DataSource } from 'typeorm';
+import { CourseRefactoringTest1692387130252 } from './migrations/1692387130252-CourseRefactoringTest';
 
 export const databaseProviders = [
   {
@@ -19,3 +20,15 @@ export const databaseProviders = [
     },
   },
 ];
+
+export const dataSource = new DataSource({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'postgres',
+  password: 'docker',
+  database: 'cursonestjs',
+  entities: [__dirname + '/**/*.entity.js'],
+  synchronize: false,
+  migrations: [CourseRefactoringTest1692387130252],
+});
